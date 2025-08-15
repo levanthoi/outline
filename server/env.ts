@@ -633,9 +633,35 @@ export class Environment {
   public AWS_S3_ACL = environment.AWS_S3_ACL ?? "private";
 
   /**
+   * Cloudinary cloud name for file storage.
+   */
+  @IsOptional()
+  public CLOUDINARY_CLOUD_NAME = this.toOptionalString(
+    environment.CLOUDINARY_CLOUD_NAME
+  );
+
+  /**
+   * Cloudinary API key for file storage.
+   */
+  @IsOptional()
+  @CannotUseWithout("CLOUDINARY_CLOUD_NAME")
+  public CLOUDINARY_API_KEY = this.toOptionalString(
+    environment.CLOUDINARY_API_KEY
+  );
+
+  /**
+   * Cloudinary API secret for file storage.
+   */
+  @IsOptional()
+  @CannotUseWithout("CLOUDINARY_API_KEY")
+  public CLOUDINARY_API_SECRET = this.toOptionalString(
+    environment.CLOUDINARY_API_SECRET
+  );
+
+  /**
    * Which file storage system to use
    */
-  @IsIn(["local", "s3"])
+  @IsIn(["local", "s3", "cloudinary"])
   public FILE_STORAGE = this.toOptionalString(environment.FILE_STORAGE) ?? "s3";
 
   /**

@@ -161,6 +161,23 @@
       "value": "26214400",
       "required": false
     },
+    "CLOUDINARY_CLOUD_NAME": {
+      "description": "Cloudinary cloud name for file storage (optional, required if using Cloudinary)",
+      "required": false
+    },
+    "CLOUDINARY_API_KEY": {
+      "description": "Cloudinary API key for file storage (optional, required if using Cloudinary)",
+      "required": false
+    },
+    "CLOUDINARY_API_SECRET": {
+      "description": "Cloudinary API secret for file storage (optional, required if using Cloudinary)",
+      "required": false
+    },
+    "FILE_STORAGE": {
+      "description": "File storage backend to use (s3, cloudinary, or local)",
+      "value": "s3",
+      "required": false
+    },
     "SMTP_HOST": {
       "description": "smtp.example.com (optional)",
       "required": false

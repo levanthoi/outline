@@ -57,6 +57,7 @@
     "@aws-sdk/s3-presigned-post": "3.859.0",
     "@aws-sdk/s3-request-presigner": "3.859.0",
     "@aws-sdk/signature-v4-crt": "^3.858.0",
+    "cloudinary": "^1.41.3",
     "@babel/core": "^7.27.7",
     "@babel/plugin-proposal-decorators": "^7.28.0",
     "@babel/plugin-transform-class-properties": "^7.27.1",
