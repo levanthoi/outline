@@ -89,12 +89,15 @@ export const uploadFile = async (
       resolve(xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 400);
     });
     const method = data.method || "POST"; // Default POST for backward compatibility
+    console.log("🚀 Upload method:", method, "Upload URL:", data.uploadUrl);
     if (method === "PUT") {
+      console.log("📤 Using PUT upload"); // ← Thêm dòng này
       // For PUT, send file directly without FormData
       xhr.open("PUT", data.uploadUrl, true);
       xhr.setRequestHeader("Content-Type", file.type);
       xhr.send(file);
     } else {
+      console.log("📤 Using POST upload"); // ← Thêm dòng này
       // Original POST logic với FormData
       xhr.open("POST", data.uploadUrl, true);
       xhr.send(formData);
