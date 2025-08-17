@@ -145,6 +145,7 @@ router.post(
       data: {
         // For presigned PUT, use the signed URL directly
         uploadUrl: presignedPost.url, // ← Change này quan trọng
+        method: "PUT",
         form: {
           "Cache-Control": "max-age=31557600",
           "Content-Type": contentType,

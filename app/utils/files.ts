@@ -88,8 +88,19 @@ export const uploadFile = async (
     xhr.addEventListener("loadend", () => {
       resolve(xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 400);
     });
-    xhr.open("POST", data.uploadUrl, true);
-    xhr.send(formData);
+    const method = data.method || "POST"; // Default POST for backward compatibility
+    if (method === "PUT") {
+      // For PUT, send file directly without FormData
+      xhr.open("PUT", data.uploadUrl, true);
+      xhr.setRequestHeader("Content-Type", file.type);
+      xhr.send(file);
+    } else {
+      // Original POST logic với FormData
+      xhr.open("POST", data.uploadUrl, true);
+      xhr.send(formData);
+    }
+    // xhr.open("POST", data.uploadUrl, true);
+    // xhr.send(formData);
   });
 
   if (!success) {
