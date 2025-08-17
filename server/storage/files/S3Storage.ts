@@ -121,7 +121,8 @@ export default class S3Storage extends BaseStorage {
   }
 
   public getUploadUrl(isServerUpload?: boolean) {
-    return this.getPublicEndpoint(isServerUpload);
+    // return this.getPublicEndpoint(isServerUpload);
+    return "";
   }
 
   public getUrlForKey(key: string): string {

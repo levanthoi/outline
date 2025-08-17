@@ -143,16 +143,15 @@ router.post(
 
     ctx.body = {
       data: {
-        uploadUrl: FileStorage.getUploadUrl(),
+        // For presigned PUT, use the signed URL directly
+        uploadUrl: presignedPost.url, // ← Change này quan trọng
         form: {
           "Cache-Control": "max-age=31557600",
           "Content-Type": contentType,
-          ...presignedPost.fields,
+          // Remove presignedPost.fields since PUT doesn't use form data
         },
         attachment: {
           ...presentAttachment(attachment),
-          // always use the redirect url for document attachments, as the serializer
-          // depends on it to detect attachment vs link
           url:
             preset === AttachmentPreset.DocumentAttachment
               ? attachment.redirectUrl
