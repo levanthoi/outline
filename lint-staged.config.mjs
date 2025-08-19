@@ -1,13 +1,12 @@
 export default {
   // Run prettier first for formatting, then oxlint for linting, and translation updates on changes to JS and
   // TypeScript files
-  "**/*.[tj]s?(x)": [
-    (f) => `prettier --write ${f.join(" ")}`,
-    // (f) => (f.length > 20 ? `yarn lint` : `oxlint ${f.join(" ")}`),
-    () => `yarn build:i18n`,
-    () => "git add shared/i18n/locales/en_US/translation.json",
-  ],
-
+  // "**/*.[tj]s?(x)": [
+  // (f) => `prettier --write ${f.join(" ")}`,
+  // (f) => (f.length > 20 ? `yarn lint` : `oxlint ${f.join(" ")}`),
+  //   () => `yarn build:i18n`,
+  //   () => "git add shared/i18n/locales/en_US/translation.json",
+  // ],
   // Automatically de-duplicate packages as yarn is terrible at it
-  "(yarn.lock|package.json)": () => `npx yarn-deduplicate yarn.lock`,
+  // "(yarn.lock|package.json)": () => `npx yarn-deduplicate yarn.lock`,
 };

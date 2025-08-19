@@ -88,7 +88,7 @@ export const uploadFile = async (
     xhr.addEventListener("loadend", () => {
       resolve(xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 400);
     });
-    const method = data.method || "POST"; // Default POST for backward compatibility
+    const method = data.method || "PUT"; // Default PUT for backward compatibility
     console.log("🚀 Upload method:", method, "Upload URL:", data.uploadUrl);
     if (method === "PUT") {
       console.log("📤 Using PUT upload"); // ← Thêm dòng này
